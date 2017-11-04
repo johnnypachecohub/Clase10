@@ -1,0 +1,68 @@
+Observables:
+1) http -> monitorear datos, errores o si se completó toda la operación (se recomienda usar obsvables aqui en vez de promesas. ejm: web services)
+2) rutas -> monitoreamos parametros de la url, del querystring, fragmentos
+3) eventos -> monitoreamos cambio de datos
+
+Observador
+
+programacion Reactiva (no es propio de javascript)
+
+con los observables se pueden ejecutar muchas veces, las promesas solo 1 vez
+
+observables     Promesas
+-----------     --------
+Next            Resolve
+Error           Reject
+Complete        Then
+Subscribe
+
+descargar "servidores" api rest, luego:
+instalar api rest
+sudo npm i -g sails
+
+vamos a tener x un lado el Api rest y x otro el Front
+
+dentro de la carpeta servidores: sudo npm install
+
+luego crear un proyecto: appHttp
+
+		app.module
+		app.component
+  !----------! !-----------------!
+nucleo					servidores.module
+(cabecera, home)		(listado, detalle, edicion)
+  !								 !
+app.routing					servidores-routing
+
+Cabecera
+---------
+!-Home
+!-Servidores
+     !-Listado
+	 !-Detalle
+	 !-Edicion
+	 !-Nuevo
+
+el api rest "servidores" esta esperando:
+'post/usuario'
+   !- email
+   !- password
+
+'post/login'
+	!- email
+	!. password
+
+vista -> componentes (html) y modulos
+controlador -> typescript
+datos -> servicios (no temas con bd y temas con bd)
+
+registroComponent -> autenticacionService -> auth-apiService (siempre devolveran Observables)
+ng g s authApi 
+
+
+extension de Chrome: augury (muestra la estructura de angular: arbol de componentes)
+
+get -> select
+post -> insert
+put -> update
+delete -> delete 
